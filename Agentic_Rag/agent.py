@@ -13,6 +13,9 @@ Corpus: Indian IT Financials (Infosys, TCS, Wipro) — Option A
 import uuid
 import json
 import anthropic
+from dotenv import load_dotenv
+load_dotenv()
+
 from datetime import datetime, timezone
 from rich.console import Console
 from rich.panel import Panel

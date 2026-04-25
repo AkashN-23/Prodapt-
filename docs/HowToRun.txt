@@ -1,0 +1,16 @@
+# 1. Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
+# 2. Install
+pip install -r requirements.txt
+
+# 3. Build the database
+python scripts/build_db.py
+
+# 4. Index the PDFs (takes 3–8 minutes depending on PDF size)
+python scripts/ingest.py
+
+# 5. Manually verify both tools work before touching the agent
+sqlite3 data/financials.db "SELECT * FROM financials WHERE company='TCS';"
+python -c "from tools.search_docs import run; print(run('Infosys operating margin FY24'))"

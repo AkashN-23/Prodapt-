@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+
+# Data files — too large for git, evaluator builds these locally
+data/chroma_store/
+data/financials.db
+data/pdfs/
+
+# Python
+.venv/
+.agent/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Generated eval output — evaluator runs this themselves
+eval/eval_results.json
+
+# OS
+.DS_Store
+Thumbs.db
